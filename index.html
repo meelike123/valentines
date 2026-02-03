@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root { --pink: #ff4d6d; --bg: #fff0f3; }
+        body { background-color: var(--bg); margin: 0; font-family: 'Georgia', serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden; }
+        
+        /* Music Box */
+        .music-container { margin-bottom: 15px; z-index: 100; background: white; padding: 10px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid var(--pink); text-align: center; }
+        
+        .book { width: 340px; height: 480px; position: relative; z-index: 10; }
+        .page { position: absolute; width: 100%; height: 100%; padding: 30px; box-sizing: border-box; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #ddd; background: white; }
+        .page.active { display: flex; }
+
+        h2 { color: #c9184a; margin: 0 0 10px 0; font-size: 1.5em; }
+        p { color: #590d22; font-size: 1.1em; line-height: 1.5; margin: 10px 0; }
+        img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 2px solid #ffebef; }
+
+        .nav-btns { margin-top: 20px; z-index: 100; }
+        button { background: var(--pink); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; margin: 0 10px; font-size: 16px; transition: 0.3s; }
+        button:disabled { background: #ffccd5; }
+
+        .heart { position: fixed; top: -5vh; font-size: 20px; z-index: 1; animation: fall linear forwards; }
+        @keyframes fall { to { transform: translateY(105vh) rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="music-container">
+        <p style="margin:0 0 5px 0; font-size: 12px; color: var(--pink); font-weight: bold;">Click Play for Our 7 Songs ❤️</p>
+        <iframe width="280" height="60" src="https://www.youtube.com/embed/unf2AbrdXh0?playlist=unf2AbrdXh0,8rd1hDqy5nM,7bK5EPjGri4,VRQDOFaFqWk,6JHu3b-pbh8,Wz_5AFguGCU,YKuHdOxj46I&autoplay=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    </div>
+
+    <div class="book" id="book">
+        <div class="page active" style="background-color: #ffc2d1;">
+            <h2>To My Favorite Human</h2>
+            <p>Our story in 15 pages.</p>
+            <span style="font-size: 50px;">💖</span>
+        </div>
+
+        <div class="page" style="background-color: #ffffff;">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400" alt="Pic">
+            <h2>Our Beginning</h2>
+            <p>Write about when you first met here.</p>
+        </div>
+
+        <div class="page" style="background-color: #fff9db;">
+            <h2>My Favorite Thing</h2>
+            <p>Type something you love about them here.</p>
+        </div>
+
+        <div class="page">
+            <img src="https://images.unsplash.com/photo-1516589174184-c68526614488?w=400" alt="Pic">
+            <h2>The Best Date</h2>
+            <p>Describe your favorite date together.</p>
+        </div>
+
+        <div class="page" style="background-color: #e3f2fd;">
+            <h2>I Love You Because...</h2>
+            <p>Reason #1: You always listen.</p>
+        </div>
+
+        <div class="page">
+            <h2>I Love You Because...</h2>
+            <p>Reason #2: You have the best laugh.</p>
+        </div>
+
+        <div class="page" style="background-color: #f3e5f5;">
+            <h2>Page 7</h2>
+            <p>Our favorite number. Our favorite playlist.</p>
+            <span>🎶</span>
+        </div>
+
+        <div class="page">
+            <img src="https://images.unsplash.com/photo-1522673607200-164883547998?w=400" alt="Pic">
+            <h2>Adventure</h2>
+            <p>I can't wait for our next trip together.</p>
+        </div>
+
+        <div class="page">
+            <h2>You Are Special</h2>
+            <p>No one makes me feel the way you do.</p>
+        </div>
+
+        <div class="page" style="background-color: #fff0f3;">
+            <h2>My Home</h2>
+            <p>You are my favorite place to be.</p>
+        </div>
+
+        <div class="page">
+            <img src="https://images.unsplash.com/photo-1494972308845-d171197eaa97?w=400" alt="Pic">
+            <h2>Through It All</h2>
+            <p>I'll always be by your side.</p>
+        </div>
+
+        <div class="page">
+            <h2>Late Nights</h2>
+            <p>I love our long talks under the stars.</p>
+        </div>
+
+        <div class="page">
+            <h2>Forever</h2>
+            <p>I can't imagine my life without you.</p>
+        </div>
+
+        <div class="page">
+            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400" alt="Pic">
+            <h2>Almost There...</h2>
+            <p>Turn one more time!</p>
+        </div>
+
+        <div class="page" style="background-color: #ffc2d1;">
+            <h2>Happy Valentine's Day!</h2>
+            <p>I love you with all my heart. ❤️</p>
+        </div>
+    </div>
+
+    <div class="nav-btns">
+        <button id="prev" onclick="move(-1)" disabled>Back</button>
+        <button id="next" onclick="move(1)">Next</button>
+    </div>
+
+    <script>
+        let idx = 0;
+        const pgs = document.querySelectorAll('.page');
+        
+        function move(d) {
+            pgs[idx].classList.remove('active');
+            idx += d;
+            pgs[idx].classList.add('active');
+            
+            document.getElementById('prev').disabled = idx === 0;
+            document.getElementById('next').disabled = idx === pgs.length - 1;
+
+            // Confetti on last page
+            if(idx === pgs.length - 1) {
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#ff4d6d', '#ff8fa3', '#ffccd5'] });
+            }
+        }
+
+        // Falling Hearts
+        setInterval(() => {
+            const h = document.createElement('div');
+            h.innerHTML = '❤️'; h.className = 'heart';
+            h.style.left = Math.random() * 100 + "vw";
+            h.style.animationDuration = (Math.random() * 2 + 3) + "s";
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 5000);
+        }, 400);
+    </script>
+</body>
+</html>
